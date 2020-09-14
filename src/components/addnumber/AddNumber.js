@@ -1,15 +1,14 @@
 import React, {useState} from "react";
-import store from "../redux/store";
+import store, {TYPE_INCREMENT} from "../redux/store";
 
-const AddNumber = props => {
+const AddNumber = () => {
     const [size, setSize] = useState(1);
 
     const handleChange = (event) => {
         setSize(Number(event.target.value));
     }
     const handleClick = () => {
-        props.onClick(size);
-        store.dispatch({type:'INCREMENT', size: size});
+        store.dispatch({type:TYPE_INCREMENT, size: size});
     }
 
     return (

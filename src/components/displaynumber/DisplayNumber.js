@@ -1,7 +1,14 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import store from "../redux/store";
 
-const DisplayNumber = props => {
-    const {number} = props;
+const DisplayNumber = () => {
+    const [number, setNumber] = useState(0);
+
+    useEffect(() => {
+        store.subscribe(() => {
+            setNumber(store.getState().number);
+        });
+    }, []);
 
     return (
         <div>

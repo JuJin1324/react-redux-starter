@@ -1,10 +1,14 @@
 import {createStore} from "redux";
 
+export const TYPE_INCREMENT = 'INCREMENT';
+
 const reducer = (state, action) => {
     if (state === undefined) {
         return {number: 0}
     }
-    if (action.type === )
+    if (action.type === TYPE_INCREMENT) {
+        return {...state, number: state.number + action.size};
+    }
     return state;
 };
 
