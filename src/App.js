@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import AddNumberRoot from "./components/addnumber/AddNumberRoot";
+import DisplayNumberRoot from "./components/displaynumber/DisplayNumberRoot";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [number, setNumber] = useState(0);
+
+    const addNumber = (num) => {
+        setNumber(number + num);
+    }
+
+    return (
+        <div className="App">
+            <h1>Root</h1>
+            <AddNumberRoot onClick={addNumber}/>
+            <DisplayNumberRoot number={number}/>
+        </div>
+    );
 }
 
 export default App;
