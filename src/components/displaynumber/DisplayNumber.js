@@ -1,19 +1,13 @@
-import React, {useEffect, useState} from "react";
-import store from "../redux/store";
+import React from "react";
 
-const DisplayNumber = () => {
-    const [number, setNumber] = useState(0);
-
-    useEffect(() => {
-        store.subscribe(() => {
-            setNumber(store.getState().number);
-        });
-    }, []);
+const DisplayNumber = props => {
+    const {number, unit} = props;
 
     return (
         <div>
             <h1>Display Number</h1>
             <input type="text" value={number} readOnly/>
+            {unit}
         </div>
     );
 }
